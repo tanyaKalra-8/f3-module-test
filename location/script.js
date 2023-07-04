@@ -71,26 +71,50 @@ pincode.innerHTML = `<b>Pincode: </b>${userInfo.postal}`;
 fetch(`https://api.postalpincode.in/pincode/${userInfo.postal}`)
 .then(response => response.json())
 .then(data => {
-    console.log(data);
+    // console.log(data);
     message.innerHTML = `<b>Message: </b>${data[0].Message}`;
     postOfficeArr = data[0].PostOffice;
-    // console.log(postOfficeArr);
+    console.log(postOfficeArr);
     // console.log(postOfficeArr[0].Name);
 
-    for(let i=0;i<postOfficeArr.length;i++){
+    displayPostalOffices(postOfficeArr);
+
+})
+.catch(error => {
+    document.getElementById('filter-card').innerText = 'Error fetching postal offices';
+});
+
+//function to display postal offices
+function displayPostalOffices(arr){
+    filterCards.innerHTML = "";
+    for(let i=0;i<arr.length;i++){
         let card = document.createElement('div');
         card.className = 'card';
 
         card.innerHTML = `
-        <p>Name: ${postOfficeArr[i].Name}</p>
-        <p>Branch Type: ${postOfficeArr[i].BranchType}</p>
-        <p>Delivery Status: ${postOfficeArr[i].DeliveryStatus}</p>
-        <p>District: ${postOfficeArr[i].District}</p>
-        <p>Division: ${postOfficeArr[i].Division}</p>
+        <p>Name: ${arr[i].Name}</p>
+        <p>Branch Type: ${arr[i].BranchType}</p>
+        <p>Delivery Status: ${arr[i].DeliveryStatus}</p>
+        <p>District: ${arr[i].District}</p>
+        <p>Division: ${arr[i].Division}</p>
     `;
     filterCards.append(card);
     }
-})
-.catch(error => {
-    document.getElementById('filter-card').innerText = 'Error fetching IP address';
-});
+}
+
+// ------------------------------FILTER FUNCTION--------------------------------------
+
+// Function to filter postal offices
+function filterPostalOffices() {
+    const search = document.getElementById("search").value.toLowerCase();
+    const filteredPostalOffices = postOfficeArr.filter(postalOffice => {
+        const name = postalOffice.Name.toLowerCase();
+        const branch = postalOffice.BranchType.toLowerCase();
+        return name.includes(search) || branch.includes(search);
+    });
+
+    displayPostalOffices(filteredPostalOffices);
+}
+
+// Event listener for search box input
+document.getElementById("search").addEventListener("input", filterPostalOffices);

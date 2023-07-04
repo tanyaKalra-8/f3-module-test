@@ -28,6 +28,9 @@ p{
     padding: 10px 15px;
     width: 120%;
 }
+#search:focus{
+    outline: none;
+}
 .filter{
     display: flex;
     align-items: center;
