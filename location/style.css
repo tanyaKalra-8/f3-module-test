@@ -52,4 +52,7 @@ p{
     .loc-container{
         flex-direction: column;
     }
+    #filter-card {
+        grid-template-columns: repeat(1, 1fr); /* Two columns with equal width */
+    }
 }
