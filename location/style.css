@@ -42,3 +42,14 @@ p{
     padding: 30px;
     margin-top: 20px;
 }
+@media screen and (max-width:768px){
+    b{
+        font-size: 20px;
+    }
+    p{
+        font-size: 15px;
+    }
+    .loc-container{
+        flex-direction: column;
+    }
+}

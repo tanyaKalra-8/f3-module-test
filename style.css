@@ -12,3 +12,11 @@
 #ip-address{
     font-size: 25px;    
 }
+@media screen and (max-width:768px){
+    #ip-address{
+        font-size: 25px;    
+    }
+    #getData{
+        width: 20%;
+    }
+}
