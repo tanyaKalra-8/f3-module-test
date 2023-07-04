@@ -1,0 +1,44 @@
+body{
+    margin:20px 40px;
+}
+.head{
+    display: inline;
+}
+#ip-address{
+    font-size: 25px;    
+}
+.loc-container{
+    display: flex;
+    justify-content: space-between;
+    margin: 10px;
+}
+b{
+    font-size: 30px;
+}
+p{
+    font-size: 20px;
+}
+.search {
+    background: none;
+    border: none;
+    cursor: pointer;
+}
+#search{
+    padding: 10px 15px;
+    width: 120%;
+}
+.filter{
+    display: flex;
+    align-items: center;
+}
+#filter-card {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr); /* Two columns with equal width */
+    gap: 20px; 
+}
+.card{
+    border: 1px solid black;
+    border-radius: 10px;
+    padding: 30px;
+    margin-top: 20px;
+}

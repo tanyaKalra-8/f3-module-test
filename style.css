@@ -1,0 +1,14 @@
+.head{
+    display: inline;
+}
+#getData{
+    background-color: black;
+    color: white;
+    width: 15%;
+    padding: 8px;
+    cursor: pointer;
+    display: block;
+}
+#ip-address{
+    font-size: 25px;    
+}
