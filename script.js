@@ -24,7 +24,7 @@ getDataBtn.addEventListener('click', (event) =>{
     const userIpAddress = localStorage.getItem('userIpAddress');
     
     //fetching location
-    const token = '5a31f5f080b369';
+    const token = '87feb413ce799e';
     fetch(`https://ipinfo.io/${userIpAddress}/geo?token=${token}`)
     .then(response => response.json())
     .then(data => {
